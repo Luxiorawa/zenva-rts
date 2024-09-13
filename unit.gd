@@ -1,25 +1,40 @@
+class_name Unit
 extends CharacterBody2D
 
+@export var health: int = 100
+@export var damage: int = 20
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var move_speed: float = 50.0
+@export var attack_range: float = 20.0
+@export var attack_speed: float = 0.5
 
+var last_attack_time: float
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+var target: Unit
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+@onready var navigationAgent: NavigationAgent2D = $NavigationAgent2D
+@onready var sprite: Sprite2D = $Sprite2D
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+@export var is_player: bool
 
-	move_and_slide()
+func _ready() -> void:
+	pass
+
+func set_target(new_target: Unit) -> void:
+	target = new_target
+
+func move_to_location(location: Vector2) -> void:
+	target = null
+	navigationAgent.target_position = location
+
+func take_damage(damage_amount: int) -> void:
+	health -= damage_amount
+	if health <= 0:
+		queue_free()
+
+func try_attack_target() -> void:
+	var current_time := Time.get_unix_time_from_system()
+	if current_time - last_attack_time > attack_speed:
+		last_attack_time = current_time
+		target.take_damage(damage)
+		pass
