@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://mqnulvrth2fl"]
+
+[ext_resource type="PackedScene" uid="uid://do7onkthwweos" path="res://unit.tscn" id="1_fxv4i"]
+[ext_resource type="Script" path="res://enemy_unit.gd" id="2_mc0m7"]
+[ext_resource type="Texture2D" uid="uid://ovu7objsyxwi" path="res://Sprites/tile_0088.png" id="3_2lalw"]
+
+[node name="EnemyUnit" instance=ExtResource("1_fxv4i")]
+script = ExtResource("2_mc0m7")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_2lalw")

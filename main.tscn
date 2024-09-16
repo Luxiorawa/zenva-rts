@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://dsqow6r5ajj6m"]
+[gd_scene load_steps=8 format=4 uid="uid://dsqow6r5ajj6m"]
 
 [ext_resource type="Texture2D" uid="uid://cvsx3p8jwkxy4" path="res://Sprites/tilemap.png" id="1_slge3"]
-[ext_resource type="PackedScene" uid="uid://do7onkthwweos" path="res://unit.tscn" id="2_v1o5n"]
+[ext_resource type="PackedScene" uid="uid://dqvp8ax87wboo" path="res://player_unit.tscn" id="2_dyrpf"]
+[ext_resource type="PackedScene" uid="uid://mqnulvrth2fl" path="res://enemy_unit.tscn" id="3_2dah4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lvjdv"]
 texture = ExtResource("1_slge3")
@@ -143,15 +144,15 @@ separation = Vector2i(1, 1)
 sources/0 = SubResource("TileSetAtlasSource_lvjdv")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_788l7"]
-vertices = PackedVector2Array(121, 145, 0, 146, 0, 1, 96, 97, 122, 1, 122, 49, 96, 49, 121, 97)
+vertices = PackedVector2Array(121, 145, 0, 146, 0, 1, 91, 101, 122, 1, 122, 45, 91, 45, 121, 101)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 2), PackedInt32Array(3, 7, 0), PackedInt32Array(2, 6, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(0, 1, 122, 1, 122, 49, 96, 49, 96, 97, 121, 97, 121, 145, 0, 146)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 1, 122, 1, 122, 45, 91, 45, 91, 101, 121, 101, 121, 145, 0, 146)])
 agent_radius = 0.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_87l3p"]
-vertices = PackedVector2Array(240, 1, 240, 146, 121, 145, 144, 97, 121, 97, 144, 49, 122, 1, 122, 49)
+vertices = PackedVector2Array(240, 1, 240, 146, 121, 145, 148, 101, 121, 101, 148, 45, 122, 1, 122, 45)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 3), PackedInt32Array(0, 3, 5), PackedInt32Array(6, 0, 5, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(240, 1, 122, 1, 122, 49, 144, 49, 144, 97, 121, 97, 121, 145, 240, 146)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(240, 1, 122, 1, 122, 45, 148, 45, 148, 101, 121, 101, 121, 145, 240, 146)])
 agent_radius = 0.0
 
 [node name="Main" type="Node2D"]
@@ -173,5 +174,8 @@ navigation_polygon = SubResource("NavigationPolygon_87l3p")
 position = Vector2(115, 73)
 zoom = Vector2(3, 3)
 
-[node name="Unit" parent="." instance=ExtResource("2_v1o5n")]
-position = Vector2(70, 58)
+[node name="PlayerUnit" parent="." instance=ExtResource("2_dyrpf")]
+position = Vector2(66, 69)
+
+[node name="EnemyUnit" parent="." instance=ExtResource("3_2dah4")]
+position = Vector2(199, 70)
