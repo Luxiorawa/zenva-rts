@@ -14,11 +14,15 @@ var target: Unit
 
 @onready var navigationAgent: NavigationAgent2D = $NavigationAgent2D
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var gameManager: GameManager = get_node("/root/Main")
 
 @export var is_player: bool
 
 func _ready() -> void:
-	pass 
+	if is_player:
+		gameManager.player_units.append(self)
+	else:
+		gameManager.enemy_units.append(self)
 
 func _physics_process(_delta: float) -> void:
 	if navigationAgent.is_navigation_finished():
