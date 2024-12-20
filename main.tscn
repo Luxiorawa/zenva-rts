@@ -163,11 +163,9 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAQAAAAAAAEAAAABAAQAAAAAAAIAAAABAAQ
 tile_set = SubResource("TileSet_te1mu")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_788l7")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_87l3p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -176,6 +174,12 @@ zoom = Vector2(3, 3)
 
 [node name="PlayerUnit" parent="." instance=ExtResource("2_dyrpf")]
 position = Vector2(66, 69)
+health = 100
+damage = 20
+move_speed = 50.0
+attack_range = 20.0
+attack_speed = 0.5
+is_player = false
 
 [node name="EnemyUnit" parent="." instance=ExtResource("3_2dah4")]
-position = Vector2(199, 70)
+position = Vector2(195, 72)
