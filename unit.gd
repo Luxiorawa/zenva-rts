@@ -48,14 +48,19 @@ func move_to_location(location: Vector2) -> void:
 func set_target(new_target: Unit) -> void:
 	target = new_target
 
-func take_damage(damage_amount: int) -> void:
-	health -= damage_amount
-	if health <= 0:
-		queue_free()
-
 func try_attack_target() -> void:
 	var current_time := Time.get_unix_time_from_system()
 	if current_time - last_attack_time > attack_speed:
 		last_attack_time = current_time
 		target.take_damage(damage)
 		pass
+
+func take_damage(damage_amount: int) -> void:
+	health -= damage_amount
+
+	if health <= 0:
+		queue_free()
+
+	sprite.modulate = Color.RED
+	await get_tree().create_timer(0.2).timeout
+	sprite.modulate = Color.WHITE
