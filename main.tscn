@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=4 uid="uid://dsqow6r5ajj6m"]
+[gd_scene load_steps=9 format=4 uid="uid://dsqow6r5ajj6m"]
 
+[ext_resource type="Script" path="res://game_manager.gd" id="1_hw1uo"]
 [ext_resource type="Texture2D" uid="uid://cvsx3p8jwkxy4" path="res://Sprites/tilemap.png" id="1_slge3"]
 [ext_resource type="PackedScene" uid="uid://dqvp8ax87wboo" path="res://player_unit.tscn" id="2_dyrpf"]
 [ext_resource type="PackedScene" uid="uid://mqnulvrth2fl" path="res://enemy_unit.tscn" id="3_2dah4"]
@@ -156,6 +157,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(240, 1, 122, 1, 122, 45
 agent_radius = 0.0
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_hw1uo")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 1)
