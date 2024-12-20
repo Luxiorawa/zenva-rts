@@ -174,12 +174,6 @@ zoom = Vector2(3, 3)
 
 [node name="PlayerUnit" parent="." instance=ExtResource("2_dyrpf")]
 position = Vector2(66, 69)
-health = 100
-damage = 20
-move_speed = 50.0
-attack_range = 20.0
-attack_speed = 0.5
-is_player = false
 
 [node name="EnemyUnit" parent="." instance=ExtResource("3_2dah4")]
 position = Vector2(195, 72)
