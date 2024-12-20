@@ -8,7 +8,6 @@
 script = ExtResource("2_ikoaa")
 
 [node name="SelectionVisual" type="Sprite2D" parent="." index="0"]
-visible = false
 modulate = Color(0, 1, 0, 0.588235)
 position = Vector2(0, 5)
 texture = ExtResource("2_66rwd")
