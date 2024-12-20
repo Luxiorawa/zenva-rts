@@ -6,10 +6,12 @@ var player_units: Array[PlayerUnit]
 var enemy_units: Array[EnemyUnit]
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			try_select_unit()
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
+			# TODO : Gérer le maintien du clic qui ne fonctionne pas actuellement, ce qui est un peu chiant pour le déplacement.
+			print("Try command unit")
 			try_command_unit()
 
 func get_selected_unit() -> Unit:
