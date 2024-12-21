@@ -6,6 +6,10 @@
 
 [node name="EnemyUnit" instance=ExtResource("1_fxv4i")]
 script = ExtResource("2_mc0m7")
+detect_range = 100.0
+health = 60
+damage = 10
+move_speed = 35.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_2lalw")
