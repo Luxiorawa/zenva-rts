@@ -6,7 +6,7 @@ extends Unit
 func _ready() -> void:
     self.gameManager.enemy_units.append(self)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
     if self.target == null:
         for player in self.gameManager.player_units:
             if player == null:
@@ -17,5 +17,5 @@ func _process(_delta: float) -> void:
             if distanceBetweenSelfAndTarget <= detect_range: 
                 set_target(player)
     
-    target_check()
+    super(delta)
       
